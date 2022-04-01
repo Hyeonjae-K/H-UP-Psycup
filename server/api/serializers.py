@@ -20,19 +20,20 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ('question')
+        fields = ('question', 'answers')
+
+
+class ContentSerializer(serializers.ModelSerializer):
+    contents = QuestionSerializer(
+        many=True, read_only=True, source='questions')
+    results = ResultSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Test
+        fields = ('id', 'contents', 'results')
 
 
 class TestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Test
         fields = ('id', 'name', 'description', 'create_date')
-
-
-class ContentSerializer(serializers.ModelSerializer):
-    content = QuestionSerializer(many=True, read_only=True, source='questions')
-    result = ResultSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = Test
-        fields = ('id', 'contents', 'results')
