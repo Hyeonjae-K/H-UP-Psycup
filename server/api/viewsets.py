@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
 from api.models import Test
-from api.serializers import TestSerializer, TestListSerializer
+from api.serializers import TestSerializer, ContentSerializer
 
 
 class TestViewSet(viewsets.ModelViewSet):
@@ -9,6 +9,6 @@ class TestViewSet(viewsets.ModelViewSet):
     serializer_class = TestSerializer
 
 
-class TestListViewSet(viewsets.ModelViewSet):
+class ContentViewSet(viewsets.ModelViewSet):
     queryset = Test.objects.all()
-    serializer_class = TestListSerializer
+    serializer_class = ContentSerializer

@@ -23,13 +23,13 @@ class QuestionSerializer(serializers.ModelSerializer):
         fields = ('question')
 
 
-class TestListSerializer(serializers.ModelSerializer):
+class TestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Test
         fields = ('id', 'name', 'description', 'create_date')
 
 
-class TestSerializer(serializers.ModelSerializer):
+class ContentSerializer(serializers.ModelSerializer):
     content = QuestionSerializer(many=True, read_only=True, source='questions')
     result = ResultSerializer(many=True, read_only=True)
 
