@@ -7,11 +7,17 @@ class Test(models.Model):
     description = models.TextField()
     create_date = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.name
+
 
 class Question(models.Model):
     test = models.ForeignKey(Test, related_name='questions',
                              on_delete=models.CASCADE)
     question = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.question
 
 
 class Answer(models.Model):
@@ -20,6 +26,9 @@ class Answer(models.Model):
     answer = models.CharField(max_length=64)
     score = models.IntegerField()
 
+    def __str__(self):
+        return self.answer
+
 
 class Result(models.Model):
     test = models.ForeignKey(Test, related_name='results',
@@ -27,3 +36,6 @@ class Result(models.Model):
     result = models.CharField(max_length=256)
     lower = models.IntegerField()
     upper = models.IntegerField()
+
+    def __str__(self):
+        return self.result
