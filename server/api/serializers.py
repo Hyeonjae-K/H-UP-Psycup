@@ -6,13 +6,13 @@ from api.models import Test, Question, Answer, Result
 class ResultSerializer(serializers.ModelSerializer):
     class Meta:
         model = Result
-        fields = ('result', 'lower', 'upper')
+        fields = '__all__'
 
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
-        fields = ('answer', 'score')
+        fields = '__all__'
 
 
 class QuestionSerializer(serializers.ModelSerializer):
@@ -20,7 +20,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ('question', 'answers')
+        fields = '__all__'
 
 
 class ContentSerializer(serializers.ModelSerializer):
@@ -30,10 +30,10 @@ class ContentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Test
-        fields = ('id', 'contents', 'results')
+        fields = '__all__'
 
 
 class TestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Test
-        fields = ('id', 'name', 'description', 'create_date')
+        fields = '__all__'
