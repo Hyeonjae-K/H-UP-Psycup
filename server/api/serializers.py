@@ -23,17 +23,25 @@ class QuestionSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ContentSerializer(serializers.ModelSerializer):
+class TestDetailSerializer(serializers.ModelSerializer):
     contents = QuestionSerializer(
         many=True, read_only=True, source='questions')
-    results = ResultSerializer(many=True, read_only=True)
+    # results = ResultSerializer(many=True, read_only=True)
 
     class Meta:
         model = Test
         fields = '__all__'
 
 
-class TestSerializer(serializers.ModelSerializer):
+class TestListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Test
+        fields = '__all__'
+
+
+class TestResultSerializer(serializers.ModelSerializer):
+    results = ResultSerializer(many=True, read_only=True)
+
     class Meta:
         model = Test
         fields = '__all__'
