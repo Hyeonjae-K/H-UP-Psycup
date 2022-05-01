@@ -143,3 +143,11 @@ REST_FRAMEWORK = {
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': '%Y/%m/%d',
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.DjangoModelPermissions',
+    )
+}
