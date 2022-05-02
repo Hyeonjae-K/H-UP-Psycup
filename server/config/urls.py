@@ -14,7 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
+from django.views.static import serve
+from django.conf import settings
 
 from api import views
 
@@ -23,4 +25,6 @@ urlpatterns = [
     path('api/test/list', views.test_list),
     path('api/test/detail/<int:pk>', views.test_detail),
     path('api/test/result/<int:pk>', views.test_result),
+    re_path(r'^media/(?P<path>.*)$', serve,
+            {'document_root': settings.MEDIA_ROOT}),
 ]
