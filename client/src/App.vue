@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <TestNavbar />
+    <div>
+      <RouterView />
+    </div>
   </div>
 </template>
 
