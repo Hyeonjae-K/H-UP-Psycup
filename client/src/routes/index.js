@@ -14,6 +14,11 @@ const router = new VueRouter({
       path: '/index',
       component: () => import ('@/views/IndexPage.vue'),
     },
+    {
+      name: 'detail',
+      path: '/detail/:id',
+      component: () => import('@/views/DetailPage.vue'),
+    }
   ]
 });
 

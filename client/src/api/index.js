@@ -12,4 +12,8 @@ function fetchTestList() {
   return instance.get('/list');
 }
 
-export { fetchTestList };
+function fetchDetail(id) {
+  return instance.get(`/detail/${id}`);
+}
+
+export { fetchTestList, fetchDetail };
